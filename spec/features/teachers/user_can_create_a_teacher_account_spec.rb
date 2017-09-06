@@ -5,6 +5,7 @@ RSpec.describe "user can create a new teacher profile" do
     context "user fills out new teacher info" do
       it "user is redirected to their show page" do
 
+
           visit '/'
           click_on "Register New Teacher"
 
