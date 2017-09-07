@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "teacher can create a new class" do
   context "teacher goes to their show page" do
     context "and clicks on create new class" do
-      it "fills out information and is redirected to the class show page" do
+      it "fills out information and is redirected to the class index page" do
         teacher = Teacher.create(first_name: "Jane", last_name: "Doe", username: "jdoe23", password: "password")
 
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(teacher)

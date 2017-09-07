@@ -1,0 +1,4 @@
+<h1> All classes for <%= @teacher.first_name %> <%= @teacher.last_name %></h1>
+  <% @teacher.sections.each do |section| %>
+    <%= section.name %>
+  <% end %>

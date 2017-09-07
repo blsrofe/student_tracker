@@ -10,17 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907182502) do
+ActiveRecord::Schema.define(version: 20170907194712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.bigint "teacher_id"
-    t.bigint "students_id"
-    t.index ["students_id"], name: "index_groups_on_students_id"
-    t.index ["teacher_id"], name: "index_groups_on_teacher_id"
+  create_table "section_students", force: :cascade do |t|
+    t.bigint "student_id"
+    t.bigint "section_id"
+    t.index ["section_id"], name: "index_section_students_on_section_id"
+    t.index ["student_id"], name: "index_section_students_on_student_id"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -32,7 +31,6 @@ ActiveRecord::Schema.define(version: 20170907182502) do
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "parent_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,7 +44,7 @@ ActiveRecord::Schema.define(version: 20170907182502) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "groups", "students", column: "students_id"
-  add_foreign_key "groups", "teachers"
+  add_foreign_key "section_students", "sections"
+  add_foreign_key "section_students", "students"
   add_foreign_key "sections", "teachers"
 end

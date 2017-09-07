@@ -1,7 +1,10 @@
 class SectionsController < ApplicationController
 
-  def show
+  def index
     @teacher = Teacher.find(params[:teacher_id])
+  end
+
+  def show
     @section = Section.find(params[:id])
   end
 
@@ -14,7 +17,7 @@ class SectionsController < ApplicationController
     @teacher = Teacher.find(params[:teacher_id])
     @section = @teacher.sections.new(section_params)
     if @section.save
-      redirect_to teacher_section_path(@teacher, @section)
+      redirect_to teacher_sections_path(@teacher)
     else
       #flash message
       render :new

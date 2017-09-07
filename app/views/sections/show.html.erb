@@ -1,1 +1,2 @@
-<h1><%= @section.name %> class for <%= @teacher.first_name %> <%= @teacher.last_name %>/h1>
+<h1><%= @section.name %></h1>
+<%= link_to "Add Student", new_section_student_path(@section) %>
