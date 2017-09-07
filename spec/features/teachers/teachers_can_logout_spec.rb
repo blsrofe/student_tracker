@@ -3,14 +3,11 @@ require 'rails_helper'
 RSpec.describe "teacher can logout" do
   context "teacher clicks on logout button from show page" do
     it "is redirected to welcome page" do
-      visit '/'
-      click_on "Register New Teacher"
+      teacher = Teacher.create(first_name: "Jane", last_name: "Doe", username: "jdoe23", password: "password")
 
-      fill_in "teacher[first_name]", with: "Jane"
-      fill_in "teacher[last_name]", with: "Doe"
-      fill_in "teacher[username]", with: "jdoe23"
-      fill_in "teacher[password]", with: "password"
-      click_on "Create New Account"
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(teacher)
+
+      visit teacher_path(teacher)
 
       click_on "Logout"
       expect(current_path).to eq(root_path)

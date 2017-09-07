@@ -1,2 +1,3 @@
 Welcome, <%= current_user.first_name %>
 <%= link_to "Logout", logout_path, method: :delete %>
+<%= link_to "Add New Class", new_teacher_section_path(@teacher) %>
