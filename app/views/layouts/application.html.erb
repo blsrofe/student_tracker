@@ -10,7 +10,8 @@
 
   <body>
   <header class="header">
-    <h1 id="main_header">Student Tracker</h1>
+    <h1 id="main_header"><a href="/">Student Tracker</a></h1>
+    <button id="header_button"><h3><%= link_to "Logout", logout_path, method: :delete %></h3></button>
   </header>
     <%= yield %>
   </body>
