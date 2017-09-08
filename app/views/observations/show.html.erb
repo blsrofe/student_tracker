@@ -1,0 +1,8 @@
+<p><%= link_to "Delete Observation", student_observation_path(@student, @observation), method: "Delete" %></p>
+<p><%= link_to "Edit this observation", edit_student_observation_path(@student, @observation) %></p>
+<%= link_to "<< All Observations", student_path(@student) %>
+
+<section class="borders">
+  <h1>Observation from <%= @observation.date %></h1>
+  <p><%= @observation.content %></p>
+</section>

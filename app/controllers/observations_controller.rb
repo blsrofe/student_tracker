@@ -1,7 +1,13 @@
+require 'pry'
 class ObservationsController < ApplicationController
 
   def index
     @student = Student.find(params[:student_id])
+  end
+
+  def show
+    @student = Student.find(params[:student_id])
+    @observation = Observation.find(params[:id])
   end
 
   def new
@@ -18,6 +24,31 @@ class ObservationsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @student = Student.find(params[:student_id])
+    @observation = Observation.find(params[:id])
+  end
+
+  def update
+    @student = Student.find(params[:student_id])
+    @observation = Observation.find(params[:id])
+    @observation.update(observation_params)
+    if @observation.save
+      redirect_to student_observation_path(@student, @observation)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @student = Student.find(params[:student_id])
+    @observation = @student.observations.find(params[:id])
+    @observation.destroy
+
+    redirect_to student_path(@student)
+  end
+
 
   private
 

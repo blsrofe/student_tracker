@@ -1,0 +1,7 @@
+<%= form_for [@student, @observation] do |f| %>
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>

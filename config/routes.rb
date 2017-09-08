@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :students, only: [:new, :create, :index]
   end
 
-  resources :students, only: [:show] do
-    resources :observations, only: [:new, :create, :index]
+  resources :students, only: [:show, :destroy, :edit, :update] do
+    resources :observations
   end
 
   delete "/logout", to: "sessions#destroy"
