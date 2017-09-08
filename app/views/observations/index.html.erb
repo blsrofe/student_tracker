@@ -1,0 +1,4 @@
+<h1>Observations for <%= @student.first_name %></h1>
+<% @student.observations.each do |observation| %>
+  <%= observation.date %>
+<% end %>
