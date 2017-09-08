@@ -4,6 +4,10 @@ class StudentsController < ApplicationController
     @section = Section.find(params[:section_id])
   end
 
+  def show
+    @student = Student.find(params[:id])
+  end
+
   def new
     @section = Section.find(params[:section_id])
     @student = Student.new
