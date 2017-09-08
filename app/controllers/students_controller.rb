@@ -18,7 +18,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     if @student.save
       @section.students << @student
-      redirect_to section_students_path(@section)
+      redirect_to section_path(@section)
     else
       render :new
     end
