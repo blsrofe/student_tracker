@@ -3,6 +3,6 @@
 <%= link_to "<< All Observations", student_path(@student) %>
 
 <section class="borders">
-  <h1>Observation from <%= @observation.date %></h1>
+  <h1>Observation from <%= "#{@observation.date} #{@observation.teacher}" %></h1>
   <p><%= @observation.content %></p>
 </section>

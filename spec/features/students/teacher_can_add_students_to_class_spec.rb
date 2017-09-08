@@ -14,7 +14,7 @@ describe "A teacher can visit their class show page" do
     fill_in "student[first_name]", with: "Johnny"
     fill_in "student[last_name]", with: "Smith"
     click_on "Create Student"
-    expect(current_path).to eq(section_students_path(section))
+    expect(current_path).to eq(section_path(section))
     expect(page).to have_content("Johnny Smith")
 
   end

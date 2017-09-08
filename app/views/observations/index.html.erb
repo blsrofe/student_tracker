@@ -7,6 +7,6 @@
 <section class="borders">
   <h2>My Observations<h2>
   <% @student.observations.each do |observation| %>
-    <p><%= link_to "#{observation.date} ", student_observation_path(@student, observation) %></p>
+    <p><%= link_to "#{observation.date} #{observation.teacher}", student_observation_path(@student, observation) %></p>
   <% end %>
 </section>

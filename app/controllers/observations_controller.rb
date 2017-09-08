@@ -54,6 +54,6 @@ class ObservationsController < ApplicationController
   private
 
   def observation_params
-    params.require(:observation).permit(:date, :content, :student_id)
+    params.require(:observation).permit(:date, :content, :student_id, :teacher)
   end
 end
