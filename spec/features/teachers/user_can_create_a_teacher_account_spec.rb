@@ -14,7 +14,7 @@ RSpec.describe "user can create a new teacher profile" do
           fill_in "teacher[last_name]", with: "Doe"
           fill_in "teacher[username]", with: "jdoe23"
           fill_in "teacher[password]", with: "password"
-          click_on "Create New Account"
+          click_on "Create or Update Account"
 
           expect(current_path).to eq(teacher_path(Teacher.first))
           expect(page).to have_content("Welcome, Jane")

@@ -18,6 +18,20 @@ class TeachersController < ApplicationController
     end
   end
 
+  def edit
+    @teacher = Teacher.find(params[:id])
+  end
+
+  def update
+    @teacher = Teacher.find(params[:id])
+    @teacher.update(teacher_params)
+    if @teacher.save
+      redirect_to teacher_path(@teacher)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def teacher_params

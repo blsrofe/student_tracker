@@ -1,5 +1,3 @@
-<%= form_for [@teacher, @section] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit "Create Class" %>
-<% end %>
+<h2>Create you class!</h2>
+
+<%= render partial: "form" %>

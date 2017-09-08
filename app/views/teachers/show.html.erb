@@ -1,3 +1,11 @@
-Welcome, <%= current_user.first_name %>
-<%= link_to "Logout", logout_path, method: :delete %>
-<%= link_to "Add New Class", new_teacher_section_path(@teacher) %>
+<h1>Welcome, <%= current_user.first_name %></h1>
+<h3><%= link_to "Logout", logout_path, method: :delete %></h3>
+<h3><%= link_to "Edit Account", edit_teacher_path(current_user) %>
+<h3><%= link_to "Add New Class", new_teacher_section_path(current_user) %></h3>
+
+<section class="borders">
+  <h2>My Classes<h2>
+  <% @teacher.sections.each do |section| %>
+    <p><%= link_to "#{section.name}", section_path(section) %></p>
+  <% end %>
+</section>

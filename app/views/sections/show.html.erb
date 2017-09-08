@@ -1,2 +1,12 @@
 <h1><%= @section.name %></h1>
-<%= link_to "Add Student", new_section_student_path(@section) %>
+<p><%= link_to "Add Student", new_section_student_path(@section) %></p>
+<p><%= link_to "Edit Class", edit_section_path(@section) %></p>
+<p><%= link_to "Delete Class", section_path(@section), method: "delete" %></p>
+<p><%= link_to "<< Back to All Classes", teacher_path(current_user) %></p>
+
+<section class="borders">
+  <h2>Students<h2>
+  <% @section.students.each do |student| %>
+    <p><%= link_to "#{student.first_name} #{student.last_name}", student_path(student) %></p>
+  <% end %>
+</section>

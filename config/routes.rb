@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :sections, only: [:new, :create, :index]
   end
 
-  resources :sections, only: [:show] do
+  resources :sections, only: [:show, :edit, :update, :destroy] do
     resources :students, only: [:new, :create, :index]
   end
 

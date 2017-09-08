@@ -12,9 +12,8 @@ RSpec.describe "teacher can create a new class" do
         click_on "Add New Class"
         expect(current_path).to eq(new_teacher_section_path(Teacher.first))
         fill_in "section[name]", with: "Literacy"
-        click_on "Create Class"
+        click_on "Create or Update Class"
 
-        #expect(current_path).to eq(teacher_group_path(Teacher.first, Group.first))
         expect(page).to have_content("Literacy")
       end
     end

@@ -17,11 +17,32 @@ class SectionsController < ApplicationController
     @teacher = Teacher.find(params[:teacher_id])
     @section = @teacher.sections.new(section_params)
     if @section.save
-      redirect_to teacher_sections_path(@teacher)
+      redirect_to teacher_path(@teacher)
     else
       #flash message
       render :new
     end
+  end
+
+  def edit
+    @section = Section.find(params[:id])
+  end
+
+  def update
+    @section = Section.find(params[:id])
+    @section.update(section_params)
+    if @section.save
+      redirect_to section_path(@section)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @section = Section.find(params[:id])
+    @section.destroy
+
+    redirect_to teacher_path(@section.teacher)
   end
 
   private

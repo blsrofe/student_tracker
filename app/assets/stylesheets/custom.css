@@ -1,0 +1,25 @@
+#main_header {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 60px;
+}
+
+.header {
+  font-family:fantasy;
+  height: 100px;
+}
+
+body {
+
+  background-image: url("https://pixabay.com/get/eb33b2082ff7023ecd1f4306ee4a409ee36ae3d019b5194594f0c579/notebook-2637733.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.borders{
+  text-align: center;
+  border: 3px solid black;
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
