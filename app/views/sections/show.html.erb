@@ -1,8 +1,8 @@
 <h1><%= @section.name %></h1>
-<p><%= link_to "Add Student", new_section_student_path(@section) %></p>
-<p><%= link_to "Edit Class", edit_section_path(@section) %></p>
-<p><%= link_to "Delete Class", section_path(@section), method: "delete" %></p>
-<p><%= link_to "<< Back to All Classes", teacher_path(current_user) %></p>
+<h3><%= link_to "Add Student", new_section_student_path(@section) %></h3>
+<h3><%= link_to "Edit Class", edit_section_path(@section) %></p>
+<h3><%= link_to "Delete Class", section_path(@section), method: "delete" %></h3>
+<h3><%= link_to "<< Back to All Classes", teacher_path(current_user) %></h3>
 
 <section class="borders">
   <h2>Students<h2>
