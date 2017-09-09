@@ -40,4 +40,20 @@ describe Teacher do
       expect(teacher).to respond_to(:sections)
     end
   end
+
+  describe "roles" do
+    it "can be created as an admin" do
+      teacher = Teacher.create(first_name: "Sara", last_name: "Smith", username: "ssmith23", password: "123", role: 1)
+
+      expect(teacher.role).to eq("admin")
+      expect(teacher.admin?).to be_truthy
+    end
+
+    it "can be created as a default teacher" do
+      teacher = Teacher.create(first_name: "Sara", last_name: "Smith", username: "ssmith23", password: "123", role: 0)
+
+      expect(teacher.role).to eq("default")
+      expect(teacher.default?).to be_truthy
+    end
+  end
 end

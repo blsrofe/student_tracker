@@ -5,4 +5,6 @@ class Teacher < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true
   has_many :sections
+
+  enum role: ["default", "admin"]
 end

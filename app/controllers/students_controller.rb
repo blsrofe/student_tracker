@@ -1,9 +1,5 @@
 class StudentsController < ApplicationController
 
-  def index
-    @section = Section.find(params[:section_id])
-  end
-
   def show
     @student = Student.find(params[:id])
   end

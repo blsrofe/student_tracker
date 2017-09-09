@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= Teacher.find(session[:teacher_id]) if session[:teacher_id]
   end
+
+  def current_admin?
+    current_user && current_user.admin?
+  end
+
 end
