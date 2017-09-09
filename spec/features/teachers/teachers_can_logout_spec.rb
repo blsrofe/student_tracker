@@ -9,7 +9,8 @@ RSpec.describe "teacher can logout" do
 
       visit teacher_path(teacher)
 
-      click_on "Logout"
+      page.first(:link, "Logout").click
+      
       expect(current_path).to eq(root_path)
     end
   end
