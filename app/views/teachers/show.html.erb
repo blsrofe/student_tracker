@@ -2,10 +2,19 @@
 <h3><%= link_to "Logout", logout_path, method: :delete %></h3>
 <h3><%= link_to "Edit Account", edit_teacher_path(current_user) %>
 <h3><%= link_to "Add New Class", new_teacher_section_path(current_user) %></h3>
+<br>
+<h3><% if current_admin? %>
+  <%= link_to "View All Students", admin_students_path %>
+  <% end %>
+</h3>
+<h3><% if current_admin? %>
+  <%= link_to "View All Teachers", admin_teachers_path %>
+  <% end %>
+</h3>
 
 <section class="borders">
-  <h2>My Classes<h2>
+  <h2>My Classes</h2>
   <% @teacher.sections.each do |section| %>
-    <p><%= link_to "#{section.name}", section_path(section) %></p>
+    <h3><%= link_to "#{section.name}", section_path(section) %></h3>
   <% end %>
 </section>

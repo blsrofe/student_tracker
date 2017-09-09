@@ -1,0 +1,9 @@
+<h1><%= "#{@teacher.first_name} #{@teacher.last_name}" %></h1>
+<h3><%= link_to "<< Back to All Teachers", admin_teachers_path %></h3>
+
+<section class="borders">
+  <h2>Classes</h2>
+  <% @teacher.sections.each do |section| %>
+    <p><%= link_to "#{section.name}", section_path(section) %></p>
+  <% end %>
+</section>

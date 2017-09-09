@@ -3,6 +3,11 @@
 <p><%= link_to "Delete Student", student_path(@student), method: "delete" %></p>
 <p><%= link_to "Edit Student", edit_student_path(@student) %></p>
 <p><%= link_to "<< Back to Classes", teacher_path(current_user) %></p>
+<br>
+<p><% if current_admin? %>
+  <%= link_to "<< Back to All Students", admin_students_path %>
+  <% end %>
+</p>
 
 <section class="borders">
   <h2>My Observations<h2>
