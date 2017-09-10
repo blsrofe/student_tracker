@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :students, only: [:index]
-    resources :teachers, only: [:index, :show]
+    resources :teachers
   end
 
   delete "/logout", to: "sessions#destroy"
