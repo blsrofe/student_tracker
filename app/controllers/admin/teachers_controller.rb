@@ -15,9 +15,10 @@ class Admin::TeachersController < Admin::BaseController
   def create
     @teacher = Teacher.new(teacher_params.tap{ |u| u[:role] = u[:role].to_i })
     if @teacher.save
+      flash[:message] = "#{@teacher.first_name} has been created!"
       redirect_to "/admin/teachers"
     else
-      #add flash message here
+      flash[:message] = "New profile not created. Make sure to fill in all fields."
       render :new
     end
   end
@@ -30,8 +31,10 @@ class Admin::TeachersController < Admin::BaseController
     @teacher = Teacher.find(params[:id])
     @teacher.update(teacher_params.tap{ |u| u[:role] = u[:role].to_i })
     if @teacher.save
+      flash[:message] = "Profile for #{@teacher.first_name} successfully updated!"
       redirect_to "/admin/teachers"
     else
+      flash[:message] = "Profile was not updated. Make sure to fill in all fields."
       render :edit
     end
   end
@@ -39,6 +42,7 @@ class Admin::TeachersController < Admin::BaseController
   def destroy
     @teacher = Teacher.find(params[:id])
     @teacher.destroy
+    flash[:message] = "Profile for #{@teacher.first_name} has been deleted."
 
     redirect_to "/admin/teachers"
   end

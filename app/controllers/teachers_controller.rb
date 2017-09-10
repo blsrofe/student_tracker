@@ -13,7 +13,7 @@ class TeachersController < ApplicationController
       session[:teacher_id] = @teacher.id
       redirect_to teacher_path(@teacher)
     else
-      #add flash message here
+      flash[:message] = "Account was not created. Please try a different username and make sure all fields are filled in."
       redirect_to root_path
     end
   end
@@ -26,8 +26,10 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
     @teacher.update(teacher_params)
     if @teacher.save
+      flash[:message] = "You updated your profile!"
       redirect_to teacher_path(@teacher)
     else
+      flash[:message] = "Profile was not updated. Make sure to fill in all fields."
       render :edit
     end
   end

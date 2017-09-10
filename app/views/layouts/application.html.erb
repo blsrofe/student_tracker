@@ -13,6 +13,7 @@
     <h1 id="main_header"><a href="/">Student Tracker</a></h1>
     <button id="header_button"><h3><%= link_to "Logout", logout_path, method: :delete %></h3></button>
   </header>
+    <div class="message"><%= flash[:message] %></div>
     <%= yield %>
   </body>
 </html>

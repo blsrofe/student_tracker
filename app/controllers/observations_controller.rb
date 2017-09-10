@@ -20,8 +20,10 @@ class ObservationsController < ApplicationController
     @student = Student.find(params[:student_id])
     @observation = @student.observations.new(observation_params)
     if @observation.save
+      flash[:message] = "You created a new observation for #{@student.first_name}!"
       redirect_to student_observation_path(@student, @observation)
     else
+      flash[:message] = "Observation was not created. Make sure you fill in all fields."
       render :new
     end
   end
@@ -36,8 +38,10 @@ class ObservationsController < ApplicationController
     @observation = Observation.find(params[:id])
     @observation.update(observation_params)
     if @observation.save
+      flash[:message] = "Your observation for #{@student.first_name} was updated!"
       redirect_to student_observation_path(@student, @observation)
     else
+      flash[:message] = "Your observation was not updated. Make sure to fill in all fields."
       render :edit
     end
   end
@@ -46,7 +50,7 @@ class ObservationsController < ApplicationController
     @student = Student.find(params[:student_id])
     @observation = @student.observations.find(params[:id])
     @observation.destroy
-
+    flash[:message] = "Observation for #{@student.first_name} has been deleted!"
     redirect_to student_path(@student)
   end
 
