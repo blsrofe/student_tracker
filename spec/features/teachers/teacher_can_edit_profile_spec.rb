@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-xdescribe "a logged in teacher " do
+describe "a logged in teacher " do
   describe "views their show page" do
     describe "clicks on edit account" do
       describe "changes information" do
@@ -10,12 +10,13 @@ xdescribe "a logged in teacher " do
 
           visit teacher_path(teacher)
           click_on "Edit Account"
-          fill_in "teacher[last_name]", with: "New Last"
+          fill_in "teacher[last_name]", with: "Smith"
+          fill_in "teacher[password]", with: "123"
           click_on "Create or Update Account"
 
           expect(current_path).to eq(teacher_path(teacher))
-          expect(page).to have_content("New Last")
-          expect(page).to have_no_content("last")
+          expect(page).to have_content("Smith")
+          expect(page).to have_no_content("Doe")
         end
       end
     end

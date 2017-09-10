@@ -1,6 +1,6 @@
 <h1>Welcome, <%= current_user.first_name %></h1>
 <h3><%= link_to "Logout", logout_path, method: :delete %></h3>
-<h3><%= link_to "Edit Account", edit_teacher_path(current_user) %>
+<h3><%= link_to "Edit Account", edit_teacher_path(@teacher) %></h3>
 <h3><%= link_to "Add New Class", new_teacher_section_path(current_user) %></h3>
 <br>
 <h3><% if current_admin? %>
