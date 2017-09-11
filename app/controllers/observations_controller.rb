@@ -1,4 +1,3 @@
-require 'pry'
 class ObservationsController < ApplicationController
 
   def index
